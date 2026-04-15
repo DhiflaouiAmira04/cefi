@@ -1,0 +1,43 @@
+<header class="header-pro">
+
+
+
+  <!-- Center: Search bar -->
+  <div class="search-container">
+    <input type="text" placeholder="Search..." class="search-bar" />
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+      <circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Right: Notification + Profile -->
+  <div class="header-right">
+
+    <!-- Notification -->
+    <div class="icon-circle" (click)="openNotifications()">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          d="M15 17h5l-1.4-1.4A2 2 0 0118 14V11a6 6 0 10-12 0v3c0 .4-.1.7-.4 1L4 17h5"/>
+        <path stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          d="M9 17a3 3 0 006 0"/>
+      </svg>
+      <span *ngIf="notifCount > 0" class="badge">{{ notifCount }}</span>
+    </div>
+
+    <!-- Profile -->
+    <div class="icon-circle profile" (click)="toggleMenu()">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <circle cx="12" cy="7" r="4" stroke-width="2"/>
+        <path stroke-width="2" stroke-linecap="round" d="M5.5 21a6.5 6.5 0 0113 0"/>
+      </svg>
+    </div>
+
+    <!-- Dropdown -->
+    <div class="dropdown-menu" *ngIf="menuOpen">
+      <button (click)="goToChangePassword()"> Security</button>
+      <button (click)="logout()" class="logout">Logout</button>
+    </div>
+
+  </div>
+</header>

@@ -1,0 +1,95 @@
+/* Container principal */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 35px 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Titre */
+.login-container h2 {
+  margin-bottom: 25px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Inputs */
+.login-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.login-container input:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.15);
+}
+
+/* Button */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #4CAF50, #2ecc71);
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.login-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.login-container button:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Error message */
+.alert-error {
+  background: #fdecea;
+  color: #e74c3c;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Forgot password */
+.forgot-password-link {
+  margin-top: 15px;
+}
+
+.forgot-password-link a {
+  text-decoration: none;
+  color: #4CAF50;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.forgot-password-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-container {
+    margin: 40px 15px;
+    padding: 25px 20px;
+  }
+}

@@ -1,0 +1,18 @@
+<div class="login-container">
+  <h2>Connexion Espace CEFI</h2>
+
+  <div *ngIf="errorMessage" class="alert-error">{{ errorMessage }}</div>
+
+  <form (ngSubmit)="login()">
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required>
+    
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Chargement...' : 'Se connecter' }}
+    </button>
+
+    <div class="forgot-password-link">
+      <a routerLink="/forgot-password">Mot de passe oublié ?</a>
+    </div>
+  </form>
+</div>

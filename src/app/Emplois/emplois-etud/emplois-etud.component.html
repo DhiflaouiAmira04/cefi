@@ -1,0 +1,35 @@
+<div class="container">
+
+  <h2>📚 Mes Emplois</h2>
+
+  <!-- loading -->
+  <div *ngIf="loading">
+    ⏳ Chargement...
+  </div>
+
+  <!-- error -->
+  <div *ngIf="error">
+    {{ error }}
+  </div>
+
+  <!-- no data -->
+  <div *ngIf="!loading && emplois.length === 0">
+    😕 Aucun emploi disponible
+  </div>
+
+  <!-- list -->
+  <div *ngFor="let e of emplois" class="emploi-card">
+
+    <h3>📌 {{ e.titre || 'Sans titre' }}</h3>
+
+    <p>📅 {{ e.created_at || 'Date inconnue' }}</p>
+
+    <a *ngIf="e.fichier"
+       [href]="'http://localhost/CEFI/Dashborad/backend/uploads/' + e.fichier"
+       target="_blank">
+      📄 Télécharger emploi
+    </a>
+
+  </div>
+
+</div>

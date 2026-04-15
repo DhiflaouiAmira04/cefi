@@ -1,0 +1,227 @@
+<div class="container mt-4 mb-5">
+  <div class="card shadow-lg border-warning">
+
+    <!-- HEADER -->
+    <div class="card-header bg-warning text-dark text-center">
+      <h3>Modifier l'Étudiant : {{ formData.nomPrenom }}</h3>
+    </div>
+
+    <div class="card-body">
+
+      <form (ngSubmit)="envoyerFormulaire()" #f="ngForm">
+
+        <!-- ================= 1. PERSONAL INFO ================= -->
+        <h5 class="text-primary border-bottom pb-2">1. Informations Personnelles</h5>
+
+        <div class="row">
+
+          <div class="col-md-4 mb-3">
+            <label>CIN :</label>
+            <input type="text" class="form-control bg-light"
+                   [(ngModel)]="formData.cin" name="cin" readonly>
+          </div>
+
+          <div class="col-md-8 mb-3">
+            <label>Nom et Prénom :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.nomPrenom" name="nomPrenom" required>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Email :</label>
+            <input type="email" class="form-control"
+                   [(ngModel)]="formData.email" name="email">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Téléphone :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.telephone" name="telephone">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Date de naissance :</label>
+            <input type="date" class="form-control"
+                   [(ngModel)]="formData.dateNaissance" name="dateNaissance">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Lieu de naissance :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.lieuNaissance" name="lieuNaissance">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Nationalité :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.nationalite" name="nationalite">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Sexe :</label>
+            <select class="form-control"
+                    [(ngModel)]="formData.sexe" name="sexe">
+              <option value="M">M</option>
+              <option value="F">F</option>
+            </select>
+          </div>
+
+          <!-- PHOTO -->
+          <div class="col-md-12 mb-3">
+            <label>Photo d'identité :</label>
+
+            <div *ngIf="formData.photo_actuelle" class="mb-2">
+              <img *ngIf="formData.photo_actuelle"
+                   [src]="'http://localhost/CEFI/uploads/' + formData.photo_actuelle"
+                   width="60"
+                   class="rounded border">
+              <small class="text-muted ms-2">Photo actuelle</small>
+            </div>
+
+            <input type="file" class="form-control"
+                   (change)="onFileChange($event, 'photo')">
+          </div>
+
+        </div>
+
+        <!-- ================= 2. STUDIES ================= -->
+        <h5 class="text-primary border-bottom pb-2 mt-3">2. Études et Formation</h5>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label>Niveau d'étude :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.niveauEtude" name="niveauEtude">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Diplôme :</label>
+            <select class="form-control"
+                    [(ngModel)]="formData.diplome_id" name="diplome_id">
+              <option *ngFor="let d of diplomes" [value]="d.id">
+                {{ d.nom_diplome }}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Dernier établissement :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.dernierEtablissement" name="dernierEtablissement">
+          </div>
+
+        </div>
+
+        <!-- ================= 3. PARENTS ================= -->
+        <h5 class="text-primary border-bottom pb-2 mt-3">3. Parents & Message</h5>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label>Nom du parent :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.nomParent" name="nomParent">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Téléphone parent :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.telParent" name="telParent">
+          </div>
+
+          <div class="col-md-12 mb-3">
+            <label>Message :</label>
+            <textarea class="form-control"
+                      [(ngModel)]="formData.message"
+                      name="message"></textarea>
+          </div>
+
+        </div>
+
+        <!-- ================= 4. DOCUMENT ================= -->
+        <h5 class="text-primary border-bottom pb-2 mt-3">4. Document justificatif</h5>
+
+        <div class="mb-3">
+
+          <div *ngIf="formData.doc_actuel" class="mb-2">
+            <a [href]="'http://localhost/CEFI/uploads/' + formData.doc_actuel"
+               target="_blank">
+              📄 Voir document actuel
+            </a>
+          </div>
+
+          <input type="file" class="form-control"
+                 (change)="onFileChange($event, 'document')">
+
+        </div>
+
+        <!-- ================= 5. EXTRA INFO ================= -->
+        <h5 class="text-primary border-bottom pb-2 mt-3">5. Informations Supplémentaires</h5>
+
+        <div class="row">
+
+          <div class="col-md-6 mb-3">
+            <label>Adresse :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.adresse" name="adresse">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>État civil :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.etat_civil" name="etat_civil">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Année scolaire :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.annee_scolaire" name="annee_scolaire">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>CIN délivré le :</label>
+            <input type="date" class="form-control"
+                   [(ngModel)]="formData.cin_delivre_le" name="cin_delivre_le">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Matricule :</label>
+            <input type="text" class="form-control"
+                   [(ngModel)]="formData.matricule" name="matricule">
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label>Statut :</label>
+            <select class="form-control"
+                    [(ngModel)]="formData.statut" name="statut">
+              <option value="En attente">En attente</option>
+              <option value="Accepté">Accepté</option>
+              <option value="Refusé">Refusé</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- ================= BUTTONS ================= -->
+        <div class="text-center mt-4">
+
+          <button type="submit"
+                  class="btn btn-warning btn-lg px-5"
+                  [disabled]="f.invalid">
+            💾 Enregistrer les Modifications
+          </button>
+
+          <button type="button"
+                  routerLink="/liste-etudiants"
+                  class="btn btn-secondary btn-lg ms-2">
+            ❌ Annuler
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

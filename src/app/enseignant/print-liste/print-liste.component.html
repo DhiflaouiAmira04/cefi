@@ -1,0 +1,37 @@
+<div class="print-container">
+  <div class="print-header">
+    <h1>Liste Officielle des Enseignants</h1>
+    <p class="print-date">Date d'édition : {{ today | date:'dd/MM/yyyy' }}</p>
+  </div>
+
+  <table class="simple-table">
+    <thead>
+      <tr>
+        <th>CIN</th>
+        <th>Nom & Prénom</th>
+        <th>Date Naissance</th>
+        <th>Email</th>
+        <th>Spécialité</th>
+        <th>Diplôme</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of enseignants">
+        <td>{{ e.CIN }}</td>
+        <td class="name-cell">{{ e.nom }}</td>
+        <td>{{ e.datedenaissance | date:'dd/MM/yyyy' }}</td>
+        <td>{{ e.email }}</td>
+        <td>{{ e.specialite }}</td>
+        <td>{{ e.diplome }}</td>
+      </tr>
+      
+      <tr *ngIf="enseignants.length === 0">
+        <td colspan="6" class="no-data">Chargement ou liste vide...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="floating-print-btn no-print" (click)="imprimer()">
+    🖨️ Lancer l'impression
+  </button>
+</div>

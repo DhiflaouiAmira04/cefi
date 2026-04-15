@@ -1,0 +1,134 @@
+<div class="card-body p-0">
+  <div class="table-responsive">
+
+    <table class="table table-hover align-middle mb-0 text-nowrap">
+
+      <thead class="table-light small">
+        <tr>
+          <th>ID</th>
+          <th>Photo</th>
+          <th>CIN</th>
+          <th>Délivré le</th>
+          <th>Nom & Prénom</th>
+          <th>Sexe</th>
+          <th>État Civil</th>
+          <th>Nationalité</th>
+          <th>Date Naissance</th>
+          <th>Lieu Naissance</th>
+          <th>Adresse</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Niveau Étude</th>
+          <th>Dernier Ets</th>
+          <th>Diplôme</th>
+          <th>Parent</th>
+          <th>Tel Parent</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody class="small">
+
+        <tr *ngFor="let e of filteredEtudiants">
+
+          <td>#{{ e.id }}</td>
+
+          <!-- PHOTO -->
+          <td>
+            <img
+              [src]="e.photo ? 'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + e.photo : ''"
+              class="rounded border"
+              style="width:45px;height:45px;object-fit:cover;">
+          </td>
+
+          <!-- CIN -->
+          <td class="fw-bold">{{ e.cin || '---' }}</td>
+
+          <!-- DATE SAFE -->
+          <td>
+            {{ e.cin_delivre_le ? (e.cin_delivre_le | date:'dd/MM/yyyy') : '---' }}
+          </td>
+
+          <td class="fw-bold">{{ e.nom_prenom || '---' }}</td>
+
+          <!-- SEXE -->
+          <td>
+            <span [class]="e.sexe === 'M' ? 'text-primary' : 'text-danger'">
+              {{ e.sexe || '---' }}
+            </span>
+          </td>
+
+          <!-- ETAT CIVIL -->
+          <td>
+            <span class="badge bg-light text-dark border">
+              {{ e.etat_civil || '---' }}
+            </span>
+          </td>
+
+          <td>{{ e.nationalite || '---' }}</td>
+
+          <td>
+            {{ e.date_naissance ? (e.date_naissance | date:'dd/MM/yyyy') : '---' }}
+          </td>
+
+          <td>{{ e.lieu_naissance || '---' }}</td>
+
+          <!-- ADRESSE SAFE -->
+          <td>
+            <div style="max-width:150px;" class="text-truncate" [title]="e.adresse">
+              {{ e.adresse || '---' }}
+            </div>
+          </td>
+
+          <td>{{ e.email || '---' }}</td>
+          <td>{{ e.telephone || '---' }}</td>
+          <td>{{ e.niveau_etude || '---' }}</td>
+          <td>{{ e.dernier_etablissement || '---' }}</td>
+
+          <!-- DIPLOME -->
+          <td>
+            <span class="badge bg-info text-dark">
+              {{ getNomDiplome(e.diplome_id) }}
+            </span>
+          </td>
+
+          <td>{{ e.nom_parent || '---' }}</td>
+          <td>{{ e.tel_parent || '---' }}</td>
+
+          <!-- STATUS -->
+          <td>
+            <span
+              [class]="'status-pill ' +
+              (e.statut === 'Accepté' ? 'st-success' :
+              e.statut === 'Refusé' ? 'st-danger' : 'st-warning')">
+              {{ e.statut || 'En attente' }}
+            </span>
+          </td>
+
+          <!-- ACTIONS -->
+          <td>
+            <div class="btn-group gap-2">
+
+              <button
+                (click)="changerStatut(e.id, 'Accepté')"
+                class="btn btn-success btn-sm rounded-pill">
+                ✔ Accepter
+              </button>
+
+              <button
+                (click)="changerStatut(e.id, 'Refusé')"
+                class="btn btn-outline-danger btn-sm rounded-pill">
+                ✖ Refuser
+              </button>
+
+            </div>
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

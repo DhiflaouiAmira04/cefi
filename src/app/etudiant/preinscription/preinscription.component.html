@@ -1,0 +1,125 @@
+<div class="container mt-4 mb-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-dark text-white text-center">
+      <h3 class="mb-0">Formulaire de Préinscription - CEFI</h3>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="envoyerFormulaire()">
+        
+        <h5 class="text-primary border-bottom pb-2">1. Informations Personnelles</h5>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label>CIN :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.cin" name="cin" required placeholder="Numéro de carte d'identité">
+          </div>
+          <div class="col-md-8 mb-3">
+            <label>Nom et Prénom :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.nomPrenom" name="nomPrenom" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Email :</label>
+            <input type="email" class="form-control" [(ngModel)]="formData.email" name="email">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Téléphone :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.telephone" name="telephone">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Date de naissance :</label>
+            <input type="date" class="form-control" [(ngModel)]="formData.dateNaissance" name="dateNaissance">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label>Lieu de naissance :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.lieuNaissance" name="lieuNaissance">
+          </div>
+          <div class="col-md-2 mb-3">
+            <label>Nationalité :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.nationalite" name="nationalite">
+          </div>
+          <div class="col-md-2 mb-3">
+            <label>Sexe :</label>
+            <select class="form-control" [(ngModel)]="formData.sexe" name="sexe">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+          </div>
+          <div class="col-md-12 mb-3">
+            <label>Photo d'identité :</label>
+            <input type="file" class="form-control" (change)="onFileChange($event, 'photo')">
+          </div>
+        </div>
+
+        <h5 class="text-primary border-bottom pb-2 mt-3">2. Études et Formation</h5>
+        <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="fw-bold">Niveau d'étude actuel :</label>
+          <select class="form-select" [(ngModel)]="formData.niveauEtude" name="niveauEtude" required>
+            <option value="" disabled selected>-- Sélectionner votre niveau --</option>
+            <option value="1ème année secondaire">1ème année secondaire</option>
+            <option value="2ème année secondaire">2ème année secondaire</option>
+            <option value="3ème année secondaire">3ème année secondaire</option>
+            <option value="4ème année secondaire (Niveau Bac)">4ème année secondaire (Niveau Bac)</option>
+            <option value="Baccalauréat">Baccalauréat</option>
+            <option value="Diplôme Homologué (BTP)">Diplôme Homologué</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+          <div class="col-md-6 mb-3">
+            <label>Document justificatif (Diplôme/Attestation) :</label>
+            <input type="file" class="form-control" (change)="onFileChange($event, 'document')">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Dernier établissement fréquenté :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.dernierEtablissement" name="dernierEtablissement">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Diplôme souhaité (Formation au CEFI) :</label>
+            <select class="form-control" [(ngModel)]="formData.diplome_id" name="diplome_id">
+              <option value="">-- Choisir un diplôme --</option>
+              <option *ngFor="let d of diplomes" [value]="d.id">{{ d.nom_diplome }}</option>
+            </select>
+          </div>
+        </div>
+
+        <h5 class="text-primary border-bottom pb-2 mt-3">3. Contact d'Urgence & Message</h5>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Nom du Parent / Tuteur/ Coinjoint :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.nomParent" name="nomParent">
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Téléphone du Parent / Tuteur/ Coinjoint :</label>
+            <input type="text" class="form-control" [(ngModel)]="formData.telParent" name="telParent">
+          </div>
+          <div class="col-md-6 mb-3">
+  <label class="fw-bold">Adresse :</label>
+  <input type="text" class="form-control" [(ngModel)]="formData.adresse" name="adresse" placeholder="Rue, Ville, Gouvernorat">
+</div>
+
+<div class="col-md-6 mb-3">
+  <label class="fw-bold">CIN Délivré le :</label>
+  <input type="date" class="form-control" [(ngModel)]="formData.cin_delivre_le" name="cin_delivre_le">
+</div>
+
+<div class="col-md-6 mb-3">
+  <label class="fw-bold">État Civil :</label>
+  <select class="form-select" [(ngModel)]="formData.etat_civil" name="etat_civil">
+    <option value="Célibataire">Célibataire</option>
+    <option value="Marié(e)">Marié(e)</option>
+    <option value="Divorcé(e)">Divorcé(e) Silber</option>
+    <option value="Veuf/Veuve">Veuf/Veuve</option>
+  </select>
+</div>
+          <div class="col-md-12 mb-3">
+            <label>Message pour CEFI (Commentaires ou questions) :</label>
+            <textarea class="form-control" [(ngModel)]="formData.message" name="message" rows="3" placeholder="Votre message ici..."></textarea>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-success btn-lg px-5">Valider ma Préinscription</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

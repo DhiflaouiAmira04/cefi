@@ -1,0 +1,57 @@
+<div *ngIf="etudiant; else loading" class="container">
+
+  <h2>🎓 Fiche Étudiant</h2>
+
+  <div class="card">
+
+    <p><b>🆔 ID:</b> {{ etudiant?.id }}</p>
+    <p><b>🎫 Matricule:</b> {{ etudiant?.matricule }}</p>
+    <p><b>👤 Nom complet:</b> {{ etudiant?.nom_prenom }}</p>
+    <p><b>📧 Email:</b> {{ etudiant?.email }}</p>
+    <p><b>📞 Téléphone:</b> {{ etudiant?.telephone }}</p>
+    <p><b>🌍 Nationalité:</b> {{ etudiant?.nationalite }}</p>
+    <p><b>⚧ Sexe:</b> {{ etudiant?.sexe }}</p>
+    <p><b>🎂 Date naissance:</b> {{ etudiant?.date_naissance }}</p>
+    <p><b>📍 Lieu naissance:</b> {{ etudiant?.lieu_naissance }}</p>
+
+    <p><b>🏫 Dernier établissement:</b> {{ etudiant?.dernier_etablissement }}</p>
+
+    <p><b>🎓 Diplôme ID:</b> {{ etudiant?.diplome_id }}</p>
+
+    <p><b>👨‍👩‍👦 Parent:</b> {{ etudiant?.nom_parent }}</p>
+    <p><b>📱 Tel parent:</b> {{ etudiant?.tel_parent }}</p>
+
+    <p><b>💬 Message:</b> {{ etudiant?.message_cefi }}</p>
+
+    <p><b>📅 Date inscription:</b> {{ etudiant?.date_inscription }}</p>
+
+    <p><b>🪪 CIN:</b> {{ etudiant?.cin }}</p>
+
+  </div>
+   <!-- PHOTO -->
+  <div>
+    <h4>📸 Photo</h4>
+    <img 
+      [src]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + etudiant?.photo"
+      alt="photo"
+      width="150"
+      height="150"
+      style="border-radius:10px; object-fit:cover;"
+    />
+  </div>
+   <!-- DOCUMENT -->
+  <div style="margin-top:20px;">
+    <h4>📄 Document justificatif</h4>
+
+    <a 
+      [href]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + etudiant?.document_justificatif"
+      target="_blank"
+    >
+      📥 Télécharger le document
+    </a>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p>⏳ Chargement...</p>
+</ng-template>

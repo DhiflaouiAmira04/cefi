@@ -1,0 +1,74 @@
+<div class="dashboard-section">
+
+  <div class="section-header">
+    <h2 class="section-title">Nouveau Profil Enseignant</h2>
+    <p class="section-subtitle">Remplissez les informations </p>
+  </div>
+
+  <div class="integrated-form">
+
+    <!-- IDENTITE -->
+    <h3 class="form-block-title">Informations personnelles</h3>
+
+    <div class="form-grid">
+
+      <div class="input-group">
+        <label>CIN</label>
+        <input type="number" placeholder="08765432" [(ngModel)]="enseignant.cin">
+      </div>
+
+      <div class="input-group">
+        <label>Nom Complet</label>
+        <input type="text" placeholder="Ex: Ahmed Ben Salah" [(ngModel)]="enseignant.nom">
+      </div>
+
+      <div class="input-group">
+        <label>Date de Naissance</label>
+        <input type="date" [(ngModel)]="enseignant.datedenaissance">
+      </div>
+
+      <div class="input-group">
+        <label>Téléphone</label>
+        <input type="text" placeholder="+216 ..." [(ngModel)]="enseignant.telephone">
+      </div>
+
+    </div>
+
+    <!-- CONTACT -->
+    <h3 class="form-block-title">Contact & Profession</h3>
+
+    <div class="form-grid">
+
+      <div class="input-group full-width">
+        <label>Email Professionnel</label>
+        <input type="email" placeholder="nom.prenom@ecole.com" [(ngModel)]="enseignant.email">
+      </div>
+
+      <div class="input-group">
+        <label>Adresse</label>
+        <input type="text" [(ngModel)]="enseignant.adresse">
+      </div>
+
+      <div class="input-group">
+        <label>Spécialité</label>
+        <input type="text" [(ngModel)]="enseignant.specialite">
+      </div>
+
+      <div class="input-group">
+        <label>Diplôme</label>
+        <input type="text" [(ngModel)]="enseignant.diplome">
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="form-footer">
+      <button class="btn-save" (click)="addEnseignant()">Ajouter</button>
+    </div>
+
+    <div *ngIf="message" class="mini-alert" [ngClass]="isError ? 'err' : 'success'">
+      {{ message }}
+    </div>
+
+  </div>
+</div>

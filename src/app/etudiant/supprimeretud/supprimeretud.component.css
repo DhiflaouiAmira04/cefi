@@ -1,0 +1,145 @@
+.container {
+  font-family: 'Inter', Arial, sans-serif;
+  padding: 20px;
+  background: #f9fafb;
+}
+
+/* TITLE */
+.title {
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2d3d;
+  margin-bottom: 20px;
+}
+
+/* TABLE CARD STYLE */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.table thead {
+  background: #f3f4f6;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* ROWS */
+.table tbody td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 14px;
+  color: #111827;
+}
+
+/* HOVER */
+.table tbody tr:hover {
+  background: #f9fafb;
+  transition: 0.2s;
+}
+
+/* BUTTON */
+.btn {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  background: #000;
+}
+
+/* EMPTY */
+.empty {
+  margin-top: 15px;
+  color: #6b7280;
+}
+
+/* BADGE DIPLOME */
+.badge-diplome {
+  background: #f3f4f6;
+  color: #111827;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  width: 750px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* SECTION */
+.section {
+  margin-top: 15px;
+}
+
+/* IMAGE */
+.img {
+  width: 140px;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+/* LINK */
+.link {
+  color: #111827;
+  text-decoration: underline;
+}
+
+/* CLOSE BUTTON */
+.close {
+  margin-top: 20px;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.close:hover {
+  background: #dc2626;
+}

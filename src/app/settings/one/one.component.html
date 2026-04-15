@@ -1,0 +1,80 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+  <div class="mb-6 flex justify-between items-center">
+    <div>
+      <h1 class="text-2xl font-bold text-gray-800 tracking-tight">Listes des Classes (1ère Année)</h1>
+      <p class="text-gray-500 text-sm">Répartition par diplôme et gestion des passages</p>
+    </div>
+    <button routerLink="/two" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-blue-700 transition-all">
+      Voir 2ème Année →
+    </button>
+  </div>
+
+  @if (loading) {
+    <div class="flex justify-center p-10">
+      <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    </div>
+  } @else {
+    
+    @for (item of formations; track item.nom_diplome) {
+      <div class="bg-white rounded-xl shadow-sm border border-gray-200 mb-8 overflow-hidden">
+        
+        <div class="bg-white border-b border-gray-100 px-6 py-4 flex justify-between items-center">
+          <h2 class="text-lg font-extrabold text-blue-900 uppercase">{{ item.nom_diplome }}</h2>
+          <span class="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-bold border border-blue-100">
+            {{ item.etudiants.length }} Étudiants
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-gray-50/50 text-[11px] uppercase text-gray-400 font-bold tracking-widest border-b">
+                <th class="px-6 py-3">Matricule</th>
+                <th class="px-6 py-3">CIN</th>
+                <th class="px-6 py-3">Nom & Prénom</th>
+                <th class="px-6 py-3">Téléphone</th>
+                <th class="px-6 py-3 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-100">
+              @for (student of item.etudiants; track student.cin) {
+                <tr class="hover:bg-blue-50/30 transition-colors group">
+                  
+                  <td class="px-6 py-4">
+                    <span class="text-xs font-mono text-gray-500 bg-gray-100 px-2 py-0.5 rounded border border-gray-200">
+                      {{ student.matricule }}
+                    </span>
+                  </td>
+
+                  <td class="px-6 py-4 text-sm font-bold text-blue-600">
+                    {{ student.cin }}
+                  </td>
+                  
+                  <td class="px-6 py-4 text-sm font-semibold text-gray-700 uppercase">
+                    {{ student.nom_prenom }}
+                  </td>
+
+                  <td class="px-6 py-4 text-sm text-gray-600">
+                    {{ student.telephone || 'Non spécifié' }}
+                  </td>
+
+                  <td class="px-6 py-4 text-center">
+                    <button 
+                      (click)="passerEnDeuxiemeAnnee(student.cin)"
+                      class="bg-green-50 text-green-600 hover:bg-green-600 hover:text-white px-4 py-1.5 rounded-full text-xs font-bold border border-green-200 transition-all shadow-sm active:scale-95">
+                      Passer au 2ème année
+                    </button>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    } @empty {
+      <div class="bg-white p-12 rounded-xl text-center border-2 border-dashed border-gray-200">
+        <p class="text-gray-400">Aucun étudiant trouvé pour cette section.</p>
+      </div>
+    }
+  }
+</div> 

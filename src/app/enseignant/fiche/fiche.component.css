@@ -1,0 +1,113 @@
+/* GLOBAL */
+.container {
+  font-family: Arial, sans-serif;
+}
+
+/* CARD */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.card-header {
+  background: white;
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 20px;
+}
+
+/* TITLE (no blue) */
+.header-top h4 {
+  margin: 0;
+  font-weight: 600;
+  color: #1f2d3d;
+}
+
+/* ACTIONS (search + print) */
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* SEARCH */
+.search-box input {
+  width: 280px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #999;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+}
+
+/* PRINT BUTTON */
+.btn-print {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2f2f2f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-print:hover {
+  background: #000;
+}
+
+.btn-print svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* HEADER TABLE (clean grey, no blue) */
+.table thead {
+  background: #f7f7f7;
+}
+
+.table thead th {
+  text-align: left;
+  padding: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  background: #140093;
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 13px;
+}
+
+/* ROWS */
+.table tbody td {
+  padding: 12px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* HOVER */
+.table tbody tr:hover {
+  background: #fafafa;
+}
+
+/* BADGE */
+.badge-diplome {
+  background: #f2f2f2;
+  color: #333;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}

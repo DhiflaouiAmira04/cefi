@@ -1,0 +1,23 @@
+<div class="container">
+
+  <h2>📅 Gestion des événements</h2>
+
+  <!-- 🔥 ADD EVENT FORM -->
+  <form #f="ngForm" (ngSubmit)="addEvent(f.value)" class="form-event">
+
+    <input type="text" name="titre" ngModel placeholder="Titre" required>
+
+    <input type="text" name="lieu" ngModel placeholder="Lieu">
+
+    <div class="date-group">
+      <input type="date" name="depart" ngModel>
+      <input type="date" name="fin" ngModel>
+    </div>
+
+    <textarea name="description" ngModel placeholder="Description"></textarea>
+
+    <input type="file" (change)="onFileChange($event)">
+
+    <button type="submit">➕ Ajouter événement</button>
+
+  </form>

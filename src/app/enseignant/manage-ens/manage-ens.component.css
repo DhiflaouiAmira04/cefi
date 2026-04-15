@@ -1,0 +1,89 @@
+/* --- Style de la ligne --- */
+.table-row {
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.table-row:hover {
+  background-color: #f8fafc; /* Effet de surbrillance léger */
+}
+
+td {
+  padding: 16px 12px;
+  vertical-align: middle;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.user-email {
+  color: #64748b;
+}
+
+/* --- Badges de Statut --- */
+.badge-status {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-active {
+  background-color: #dcfce7; /* Vert pastel */
+  color: #15803d;
+}
+
+.status-inactive {
+  background-color: #fee2e2; /* Rouge pastel */
+  color: #b91c1c;
+}
+
+/* --- Cellule Actions --- */
+.actions-cell {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* --- Bouton Activer/Désactiver --- */
+.btn-toggle {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-toggle:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+/* --- Bouton Supprimer --- */
+.btn-delete {
+  background: none;
+  border: 1px solid transparent;
+  color: #ef4444; /* Rouge moderne */
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-delete:hover {
+  background-color: #fef2f2;
+  border-color: #fecaca;
+}

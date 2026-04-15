@@ -1,0 +1,22 @@
+<div class="dashboard-container" *ngIf="enseignantInfo">
+  <header class="welcome-section">
+    <h1>Hello, Enseignant !</h1>
+    <p class="subtitle">Bienvenue dans votre espace, <strong>{{ enseignantInfo.nom }}</strong></p>
+  </header>
+
+  <div class="info-card">
+    <h3><i class="fas fa-user-circle"></i> Mes Informations Personnelles</h3>
+    <hr>
+    <div class="info-grid">
+      <div class="info-item"><strong>CIN :</strong> {{ enseignantInfo.CIN }}</div>
+      <div class="info-item"><strong>Email :</strong> {{ enseignantInfo.email }}</div>
+      <div class="info-item"><strong>Téléphone :</strong> {{ enseignantInfo.telephone }}</div>
+      <div class="info-item"><strong>Adresse :</strong> {{ enseignantInfo.adresse }}</div>
+      <div class="info-item"><strong>Date de Naissance :</strong> {{ enseignantInfo.datedenaissance | date:'dd/MM/yyyy' }}</div>
+      <div class="info-item"><strong>Spécialité :</strong> {{ enseignantInfo.specialite }}</div>
+      <div class="info-item"><strong>Diplôme :</strong> {{ enseignantInfo.diplome }}</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loader">Chargement de vos informations...</div>

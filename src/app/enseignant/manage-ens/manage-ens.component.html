@@ -1,0 +1,22 @@
+<h3 class="table-title">Liste des enseignants avec compte actif</h3>
+<tr *ngFor="let u of enseignants" class="table-row">
+  <td class="user-name">{{ u.nom }}</td>
+  <td class="user-email">{{ u.email }}</td>
+  <td>
+    <span class="badge-status" [ngClass]="u.statut === 'actif' ? 'status-active' : 'status-inactive'">
+      {{ u.statut }}
+    </span>
+  </td>
+  <td class="actions-cell">
+    <button (click)="toggleStatus(u)" class="btn-toggle">
+      {{ u.statut === 'actif' ? 'Désactiver' : 'Activer' }}
+    </button>
+    
+    <button (click)="deleteUser(u.id)" class="btn-delete">
+      Supprimer
+    </button>
+
+
+
+  </td>
+</tr>

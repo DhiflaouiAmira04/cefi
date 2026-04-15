@@ -1,0 +1,45 @@
+<div class="container">
+
+  <h2>✏️ Edit Events</h2>
+
+  <!-- 📋 LIST -->
+  <div *ngFor="let e of events" class="card">
+
+    <h3>{{ e.titre }}</h3>
+    <p>{{ e.lieu }}</p>
+    <p>{{ e.depart }} → {{ e.fin }}</p>
+    <p>{{ e.description }}</p>
+        <img *ngIf="e.photo" 
+         [src]="'http://localhost/CEFI/Dashborad/backend/uploads/' + e.photo" />
+
+    <button (click)="selectEvent(e)">✏️ Edit</button>
+
+  </div>
+
+  <hr>
+
+  <!-- ✏️ EDIT FORM -->
+  <div *ngIf="selectedEvent" class="edit-box">
+
+    <h3>Modifier Event</h3>
+
+    <input [(ngModel)]="selectedEvent.titre" name="titre">
+    <input [(ngModel)]="selectedEvent.lieu" name="lieu">
+
+    <input type="date" [(ngModel)]="selectedEvent.depart" name="depart">
+    <input type="date" [(ngModel)]="selectedEvent.fin" name="fin">
+
+    <textarea [(ngModel)]="selectedEvent.description" name="desc"></textarea>
+
+    <input type="file" (change)="onEditFile($event)">
+
+    <div class="actions">
+
+      <button (click)="updateEvent()">💾 Save</button>
+      <button (click)="cancelEdit()">❌ Cancel</button>
+
+    </div>
+
+  </div>
+
+</div>

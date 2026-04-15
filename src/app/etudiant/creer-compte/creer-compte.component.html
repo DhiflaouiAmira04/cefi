@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      <h2>Confirmer la création du compte</h2>
+    </div>
+
+    <div class="card-body" *ngIf="etudiant; else noData">
+      <p>Vous êtes sur le point de créer un compte :</p>
+
+      <ul class="info-list">
+        <li><strong>Nom & Prénom :</strong> {{ etudiant.nom_prenom }}</li>
+        <li><strong>Email :</strong> {{ etudiant.email }}</li>
+      </ul>
+
+      <div class="alert-info">
+        <p>⚠️ Email de configuration sera envoyé.</p>
+      </div>
+
+      <div class="actions">
+        <button (click)="goBack()">Annuler</button>
+        <button (click)="confirmCreation()">Confirmer</button>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <p>Aucun étudiant sélectionné.</p>
+      <button (click)="goBack()">Retour</button>
+    </ng-template>
+  </div>
+</div>

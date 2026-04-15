@@ -1,0 +1,63 @@
+<div class="dashboard-container">
+
+  <header class="dash-header">
+    <h1>Gestion des classes</h1>
+    <p>Bienvenue dans votre espace de gestion des classes</p>
+  </header>
+
+  <div class="stats-overview no-print">
+
+    <!-- 1ère année -->
+    <div class="nav-card" routerLink="/one">
+      <div class="card-icon blue">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2l10 7-10 7L2 9l10-7zm0 9.5L4.5 9 12 4.5 19.5 9 12 11.5z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>1ère Année</h3>
+        <p>Liste des nouveaux étudiants</p>
+      </div>
+    </div>
+
+    <!-- 2ème année -->
+    <div class="nav-card" routerLink="/two">
+      <div class="card-icon green">
+        <svg viewBox="0 0 24 24">
+          <path d="M9 12l2 2 4-4M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>2ème Année</h3>
+        <p>Étudiants admis</p>
+      </div>
+    </div>
+
+    <!-- Historique -->
+    <div class="nav-card" routerLink="/historique">
+      <div class="card-icon purple">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 3a9 9 0 100 18 9 9 0 000-18zm1 9h4v2h-6V7h2v5z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Historique</h3>
+        <p>Promotions archivées</p>
+      </div>
+    </div>
+
+    <!-- Print -->
+    <div class="nav-card" (click)="printList()">
+      <div class="card-icon orange">
+        <svg viewBox="0 0 24 24">
+          <path d="M6 9V2h12v7H6zm0 9h12v4H6v-4zm0-7h12v4H6v-4z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Imprimer</h3>
+        <p>Exporter la liste</p>
+      </div>
+    </div>
+
+  </div>
+</div>

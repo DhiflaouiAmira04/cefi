@@ -1,0 +1,92 @@
+/* --- Style Global --- */
+.print-container {
+  padding: 30px;
+  background-color: white;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.print-header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.print-header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: #1a1a1a;
+}
+
+.print-date {
+  font-size: 14px;
+  color: #666;
+}
+
+/* --- Tableau Simple --- */
+.simple-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.simple-table th {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  padding: 12px 8px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.simple-table td {
+  border: 1px solid #ccc;
+  padding: 10px 8px;
+  font-size: 13px;
+}
+
+.name-cell {
+  font-weight: bold;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+}
+
+/* --- Bouton d'action (caché à l'impression) --- */
+.floating-print-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.floating-print-btn:hover {
+  background: #1d4ed8;
+}
+
+/* --- LOGIQUE D'IMPRESSION --- */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-container {
+    padding: 0;
+  }
+
+  /* Pour que le navigateur imprime les couleurs de fond (gris du header) */
+  .simple-table th {
+    background-color: #f2f2f2 !important;
+   
+  }
+}

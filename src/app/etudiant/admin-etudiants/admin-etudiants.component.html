@@ -1,0 +1,88 @@
+<div class="container mt-4">
+
+  <!-- 🔹 Title -->
+  <h2 class="text-center mb-4">📚 Gestion des Étudiants</h2>
+
+  <!-- 🔹 Loading -->
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary"></div>
+    <p>Chargement...</p>
+  </div>
+
+  <!-- 🔹 Table -->
+  <div *ngIf="!loading">
+
+    <table class="table table-bordered table-hover shadow-sm">
+
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Rôle</th>
+          <th>Statut</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let e of etudiants">
+
+          <!-- ID -->
+          <td>{{ e.id }}</td>
+
+          <!-- Nom -->
+          <td>{{ e.nom }}</td>
+
+          <!-- Email -->
+          <td>{{ e.email }}</td>
+
+          <!-- Role -->
+          <td>
+            <span class="badge bg-info text-dark">
+              {{ e.role }}
+            </span>
+          </td>
+
+          <!-- Statut -->
+          <td>
+            <span 
+              class="badge"
+              [ngClass]="e.statut === 'actif' ? 'bg-success' : 'bg-danger'">
+
+              {{ e.statut || 'actif' }}
+            </span>
+          </td>
+
+          <!-- Actions -->
+          <td>
+
+            <!-- Toggle -->
+            <button class="btn btn-sm btn-warning me-2"
+              (click)="toggleStatus(e)">
+
+              🔄 Toggle
+            </button>
+
+            <!-- Delete -->
+            <button class="btn btn-sm btn-danger"
+              (click)="deleteUser(e.id)">
+
+              🗑 Delete
+            </button>
+
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+
+    <!-- 🔹 Empty state -->
+    <div *ngIf="etudiants.length === 0" class="text-center mt-3">
+      <p>Aucun étudiant trouvé.</p>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+  <h2 class="title">📚 Liste Complète des Étudiants Inscrits</h2>
+
+  <!-- Loading -->
+  <div *ngIf="loading" class="loading">
+    <div class="spinner"></div> Chargement en cours...
+  </div>
+
+  <!-- Error -->
+  <div *ngIf="error" class="error">
+    ⚠️ {{ error }}
+  </div>
+
+  <!-- Table -->
+  <div class="table-container" *ngIf="!loading && etudiants.length">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Matricule</th>
+          <th>CIN</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Téléphone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let e of etudiants">
+
+          <td>{{ e.matricule }}</td>
+          <td>{{ e.cin }}</td>
+          <td>{{ e.nom_prenom }}</td>
+          <td>{{ e.email }}</td>
+          <td>{{ e.telephone }}</td>
+
+          <!-- ACTIONS -->
+          <td>
+
+
+
+            <!-- Modifier -->
+            <button class="btn btn-warning btn-sm"
+                    [routerLink]="['/modifieretud', e.cin]">
+              ✏️ Modifier
+            </button>
+
+
+
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <!-- Empty -->
+  <div *ngIf="!loading && etudiants.length === 0" class="empty">
+    Aucun étudiant trouvé.
+  </div>
+</div>

@@ -1,0 +1,67 @@
+<div class="container">
+
+  <h2>📚 Étudiants niveau 1 classés par diplôme</h2>
+
+  <div *ngIf="loading">⏳ Chargement...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div *ngFor="let item of groupedByDiplome | keyvalue">
+
+    <div class="diplome-card">
+
+      <div class="diplome-header">
+
+        <h3>🎓 {{ item.value.diplome.nom_diplome }}</h3>
+
+        <div class="actions">
+
+          <input type="file"
+                 (change)="onFileSelected($event, item.value.diplome.id)" />
+                 
+
+        </div>
+        <button class="btn-send" (click)="envoyerEmploi(item.value.diplome)"> 📩 Envoyer emploi </button>
+
+      </div>
+
+      <table class="table-etudiants">
+
+        <thead>
+          <tr>
+            <th>CIN</th>
+            <th>Matricule</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let e of item.value.students">
+
+            <td>{{ e.cin }}</td>
+            <td>{{ e.matricule }}</td>
+            <td>{{ e.nom_prenom }}</td>
+            <td>{{ e.email }}</td>
+
+            <td>
+              <button (click)="supprimer(e.etudiant_id)">❌</button>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+      <div class="card" routerLink="/niveau">
+
+      <h3>Historique</h3>
+      <p>Promotions archivées</p>
+  
+
+</div>

@@ -1,0 +1,120 @@
+<div class="dashboard-container">
+  <header class="dash-header">
+    <h1>Gestion des Enseignants</h1>
+    <p>Bienvenue dans votre espace d'administration</p>
+  </header>
+
+  <div class="stats-overview no-print">
+
+    <!-- Liste -->
+    <div class="nav-card" routerLink="/listEnseignant">
+      <div class="card-icon blue">
+        <!-- Users SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 
+          1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 
+          3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 
+          2c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm8 
+          0c-.29 0-.62.02-.97.05C17.16 13.36 20 
+          14.28 20 17v3h4v-3c0-2.66-5.33-4-8-4z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Liste</h3>
+        <p>Consulter tous les enseignants</p>
+      </div>
+    </div>
+
+    <!-- Ajouter -->
+    <div class="nav-card" routerLink="/addEnseignant">
+      <div class="card-icon green">
+        <!-- Plus SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M19 11H13V5h-2v6H5v2h6v6h2v-6h6z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Ajouter</h3>
+        <p>Nouveau profil enseignant</p>
+      </div>
+    </div>
+
+    <!-- Modifier -->
+    <div class="nav-card" routerLink="/modifier">
+      <div class="card-icon orange">
+        <!-- Edit SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 
+          17.25zM20.71 7.04a1.003 1.003 0 000-1.42l-2.34-2.34a1.003 
+          1.003 0 00-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Modifier</h3>
+        <p>Modifier un enseignant</p>
+      </div>
+    </div>
+
+    <!-- Supprimer -->
+    <div class="nav-card" routerLink="/supprimer">
+      <div class="card-icon red">
+        <!-- Trash SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M6 7h12v14H6zM9 4h6l1 2H8l1-2z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Supprimer</h3>
+        <p>Supprimer un enseignant</p>
+      </div>
+    </div>
+
+    <!-- Créer compte -->
+    <div class="nav-card" routerLink="/compte">
+      <div class="card-icon teal">
+        <!-- User Add -->
+        <svg viewBox="0 0 24 24">
+          <path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 
+          1.79-4 4 1.79 4 4 4zM15 14c-2.67 
+          0-8 1.34-8 4v2h10v-2c0-.7.13-1.37.36-2H7c0-1.66 
+          3.33-3 8-3zM20 10v2h2v2h-2v2h-2v-2h-2v-2h2v-2h2z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Créer Compte</h3>
+        <p>Créer accès enseignant</p>
+      </div>
+    </div>
+
+    <!-- Comptes actifs -->
+    <div class="nav-card" routerLink="/manageEns">
+      <div class="card-icon purple">
+        <!-- Settings -->
+        <svg viewBox="0 0 24 24">
+          <path d="M19.14,12.94a7.49,7.49,0,0,0,.05-.94,7.49,7.49,0,0,0-.05-.94l2.11-1.65a.5.5,0,0,0,.12-.64l-2-3.46a.5.5,0,0,0-.6-.22l-2.49,1a7.28,7.28,0,0,0-1.63-.94l-.38-2.65A.5.5,0,0,0,13.77,2H10.23a.5.5,0,0,0-.49.42L9.36,5.07a7.28,7.28,0,0,0-1.63.94l-2.49-1a.5.5,0,0,0-.6.22l-2,3.46a.5.5,0,0,0,.12.64L4.86,11.06a7.49,7.49,0,0,0-.05.94,7.49,7.49,0,0,0,.05.94L2.75,14.59a.5.5,0,0,0-.12.64l2,3.46a.5.5,0,0,0,.6.22l2.49-1a7.28,7.28,0,0,0,1.63.94l.38,2.65a.5.5,0,0,0,.49.42h3.54a.5.5,0,0,0,.49-.42l.38-2.65a7.28,7.28,0,0,0,1.63-.94l2.49,1a.5.5,0,0,0,.6-.22l2-3.46a.5.5,0,0,0-.12-.64ZM12,15.5A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Comptes Actifs</h3>
+        <p>Gérer les accès</p>
+      </div>
+    </div>
+    <!-- Fiche Enseignant -->
+<div class="nav-card" routerLink="/fiche">
+  <div class="card-icon dark">
+    <!-- Profile SVG -->
+    <svg viewBox="0 0 24 24">
+      <path d="M12 12c2.7 0 5-2.3 
+      5-5s-2.3-5-5-5-5 2.3-5 5 
+      2.3 5 5 5zm0 2c-3.3 
+      0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+    </svg>
+  </div>
+  <div class="card-info">
+    <h3>Fiche Enseignant</h3>
+    <p>Consulter les détails</p>
+  </div>
+</div>
+
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h2>📅 Gestion des événements</h2>
+
+
+
+  <!-- 📋 LIST -->
+  <div *ngFor="let e of events" class="card">
+
+    <img *ngIf="e.photo" 
+         [src]="'http://localhost/CEFI/Dashborad/backend/uploads/' + e.photo" />
+
+    <h3>{{ e.titre }}</h3>
+    <p>📍 {{ e.lieu }}</p>
+    <p>📅 {{ e.depart }} → {{ e.fin }}</p>
+    <p>{{ e.description }}</p>
+
+
+
+    </div>
+
+  </div>
+
+  

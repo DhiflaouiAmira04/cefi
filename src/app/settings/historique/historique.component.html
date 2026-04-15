@@ -1,0 +1,85 @@
+<div class="p-6 bg-gray-50 min-h-screen font-['Inter']">
+  
+  <div class="mb-10">
+    <h1 class="text-3xl font-black text-gray-800 tracking-tighter uppercase">Archives & Historique</h1>
+    <p class="text-gray-500 text-sm">Consultation des promotions passées</p>
+  </div>
+
+  @if (loading) {
+    <div class="flex justify-center p-20">
+      <div class="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-600"></div>
+    </div>
+  } @else {
+
+    @if (latestPromotion) {
+      <div class="mb-12">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="bg-blue-800 text-white px-6 py-2 rounded-xl shadow-lg text-lg font-black tracking-widest uppercase">
+            PROMOTION {{ latestPromotion.promotion }}
+          </div>
+          <div class="h-px flex-1 bg-gray-200"></div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+          <table class="w-full text-left">
+            <tbody class="divide-y divide-gray-100">
+              <tr class="bg-gray-50 text-[11px] uppercase text-gray-400 font-bold tracking-widest border-b">
+                <th class="px-6 py-4">Nom & Prénom</th>
+                <th class="px-6 py-4">Matricule</th>
+                <th class="px-6 py-4">Niveau Archivé</th>
+                <th class="px-6 py-4 text-right">Diplôme</th>
+              </tr>
+
+              @for (st of latestPromotion.etudiants; track st.id) {
+                <tr class="hover:bg-blue-50/30 transition-colors">
+                  <td class="px-6 py-4">
+                    <div class="text-sm font-bold text-gray-700 uppercase">{{ st.nom_prenom }}</div>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span class="text-xs font-mono text-gray-400">{{ st.matricule }}</span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span [class]="st.niveau_archive == 2 ? 'text-green-600' : 'text-blue-600'" class="text-[10px] font-black uppercase">
+                      Niveau {{ st.niveau_archive }}
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-[10px] font-bold uppercase border">
+                      {{ st.nom_diplome }}
+                    </span>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    }
+
+    @if (olderPromotions.length > 0) {
+      <div class="mt-16">
+        <h2 class="text-xl font-bold text-gray-700 mb-6">📜 Anciennes Promotions</h2>
+        <div class="space-y-4">
+          @for (promo of olderPromotions; track promo.promotion) {
+            <details class="bg-white rounded-xl border border-gray-200 overflow-hidden group">
+              <summary class="px-6 py-4 cursor-pointer hover:bg-gray-50 flex justify-between items-center font-bold text-gray-600 uppercase">
+                Promotion {{ promo.promotion }}
+                <span class="text-xs font-normal text-gray-400">{{ promo.etudiants.length }} Étudiants</span>
+              </summary>
+              <div class="p-4 border-t border-gray-100 bg-gray-50/30">
+                <ul class="divide-y divide-gray-100">
+                  @for (s of promo.etudiants; track s.id) {
+                    <li class="py-2 flex justify-between text-xs">
+                      <span class="font-semibold text-gray-600 uppercase">{{ s.nom_prenom }}</span>
+                      <span class="italic text-gray-400">{{ s.nom_diplome }}</span>
+                    </li>
+                  }
+                </ul>
+              </div>
+            </details>
+          }
+        </div>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,84 @@
+<div class="container mt-3 d-print-none d-flex justify-content-between">
+  <button class="btn btn-outline-secondary" routerLink="/liste-etudiants">
+    <i class="bi bi-arrow-left"></i> Retour
+  </button>
+  <button class="btn btn-dark" (click)="imprimer()">
+    <i class="bi bi-printer"></i> Imprimer la Fiche
+  </button>
+</div>
+
+<div class="fiche-papier shadow-sm mx-auto mt-4" *ngIf="etudiant" id="printable-fiche">
+  
+  <div class="header-section">
+    <div class="top-matricule">{{ etudiant.display_matricule }}</div>
+    <div class="code-and-year">
+      <div class="code-box">
+        <span class="code-label">CODE</span>
+        <span class="code-value">2610</span>
+      </div>
+      <div class="year-box">
+        <span class="year-label">Année Scolaire</span>
+        <span class="year-value">{{ etudiant.annee_scolaire_auto }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-body d-flex">
+    <div class="photo-area">
+      <div class="photo-frame">
+        <img *ngIf="etudiant.photo" [src]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + etudiant.photo" alt="Photo">
+        <div *ngIf="!etudiant.photo" class="no-photo">PHOTO</div>
+      </div>
+    </div>
+
+    <div class="fields-area flex-grow-1">
+      <div class="row-field"><span class="label">NOM & PRENOM</span><span class="data text-uppercase">{{ etudiant.nom_prenom }}</span></div>
+      <div class="row-field"><span class="label">DATE DE NAISSANCE</span><span class="data">{{ etudiant.date_naissance | date:'dd/MM/yyyy' }}</span></div>
+      <div class="row-field"><span class="label">LIEU DE NAISSANCE</span><span class="data">{{ etudiant.lieu_naissance }}</span></div>
+      <div class="row-field"><span class="label">NATIONALITE</span><span class="data">{{ etudiant.nationalite }}</span></div>
+      
+      <div class="row-field">
+        <span class="label">C.I.N. N°</span>
+        <span class="data" style="min-width: 150px;">{{ etudiant.cin }}</span>
+        <span class="label ms-4">Délivrée Le :</span>
+        <span class="data">28-07-2020</span>
+      </div>
+
+      <div class="row-field"><span class="label">ADRESSE</span><span class="data">{{ etudiant.adresse || '---' }}</span></div>
+      <div class="row-field"><span class="label">N° TELEPHONE</span><span class="data">{{ etudiant.telephone }}</span></div>
+      <div class="row-field"><span class="label">NIVEAU D'ETUDE</span><span class="data">{{ etudiant.niveau_etude }}</span></div>
+      <div class="row-field"><span class="label">DIPLÔME OBTENU</span><span class="data">---</span></div>
+      <div class="row-field"><span class="label">DERNIER ETABLIS. FREQ</span><span class="data">{{ etudiant.dernier_etablissement }}</span></div>
+      <div class="row-field"><span class="label">ETAT CIVIL</span><span class="data">CELIBATAIRE</span></div>
+      <div class="row-field"><span class="label">NOM DU PERE OU CONJOINT</span><span class="data">{{ etudiant.nom_parent }} {{ etudiant.tel_parent }}</span></div>
+    </div>
+  </div>
+
+  <table class="paiement-table mt-4">
+    <thead>
+      <tr>
+        <th style="width: 20%;"></th>
+        <th>Oct-Nov-Dec</th>
+        <th>Jan-Fev-Mars</th>
+        <th>Av-Mai-Juin</th>
+        <th>Juillet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="labels">N° Reçu<br>Date<br>Montant</td>
+        <td></td>
+        <td class="manuscrit">3884<br>09/02<br>140,000</td>
+        <td></td>
+        <td class="info-insc"><strong>INSCRIPTION</strong><br>4991 / 4993<br>200dt / 160dt</td>
+      </tr>
+      <tr>
+        <td class="labels">N° Reçu<br>Date<br>Montant</td>
+        <td class="manuscrit">3836<br>02/11<br>140,000</td>
+        <td></td>
+        <td></td>
+        <td class="info-insc"><strong>STAGE</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

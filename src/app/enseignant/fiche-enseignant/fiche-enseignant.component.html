@@ -1,0 +1,62 @@
+<div class="fiche-wrapper" *ngIf="enseignant">
+  <div class="fiche-card">
+    
+    <div class="card-header-custom">
+      <h2 class="title">{{ modeEdition ? 'Modifier le Profil' : 'Fiche Enseignant' }}</h2>
+      <div class="separator"></div>
+    </div>
+
+    <div class="card-content">
+      <div class="info-side">
+        <div *ngIf="!modeEdition">
+          <div class="data-group">
+            <label class="section-title">Informations Personnelles</label>
+            <div class="info-grid">
+              <div class="info-row"><strong>Nom :</strong> <span>{{ enseignant.nom }}</span></div>
+              <div class="info-row"><strong>CIN :</strong> <span>{{ enseignant.CIN }}</span></div>
+              <div class="info-row"><strong>Email :</strong> <span class="text-primary">{{ enseignant.email }}</span></div>
+              <div class="info-row"><strong>Téléphone :</strong> <span>{{ enseignant.telephone }}</span></div>
+              <div class="info-row"><strong>Date de naissance :</strong> <span>{{ enseignant.datedenaissance | date:'dd MMMM yyyy' }}</span></div>
+            </div>
+          </div>
+
+          <div class="data-group">
+            <label class="section-title">Parcours Professionnel</label>
+            <div class="info-grid">
+              <div class="info-row"><strong>Spécialité :</strong> <span>{{ enseignant.specialite }}</span></div>
+              <div class="info-row"><strong>Diplôme :</strong> <span class="badge-diplome">{{ enseignant.diplome }}</span></div>
+              <div class="info-row"><strong>Adresse :</strong> <span>{{ enseignant.adresse }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="photo-side">
+        <div class="image-container" (click)="fileInput.click()" title="Cliquer pour changer la photo">
+          <img [src]="nouvellePhoto ? nouvellePhoto : (enseignant.photo ? 'http://localhost/CEFI/Dashborad/backend/uploads/' + enseignant.photo : 'assets/no-avatar.png')" alt="Photo">
+          <div class="photo-overlay no-print">
+            <span>Sélectionnez une image</span>
+          </div>
+        </div>
+        <input type="file" #fileInput (change)="onPhotoSelected($event)" hidden accept="image/*">
+      </div>
+    </div>
+
+    <div class="card-footer no-print">
+      <div class="footer-actions">
+        <button class="btn-secondary" (click)="goBack()">
+          ← Retour à la liste
+        </button>
+        <button class="btn-primary" onclick="window.print()">
+          🖨️ Imprimer la fiche
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="loading-state" *ngIf="!enseignant">
+  <div class="spinner"></div>
+  <p>Chargement des données...</p>
+</div>

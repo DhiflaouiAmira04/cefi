@@ -1,0 +1,42 @@
+<div class="profile-container">
+
+  <div class="profile-card">
+
+    <!-- HEADER -->
+    <div class="profile-header">
+      <img src="assets/user.png" class="profile-img">
+      <h2>{{ etudiant.nom }}</h2>
+      <span class="status" [ngClass]="etudiant.statut">
+        {{ etudiant.statut }}
+      </span>
+    </div>
+
+    <!-- INFOS -->
+    <div class="profile-body">
+
+      <div class="info">
+        <label>📧 Email</label>
+        <p>{{ etudiant.email }}</p>
+      </div>
+
+      <div class="info">
+        <label>🎭 Rôle</label>
+        <p>{{ etudiant.role }}</p>
+      </div>
+
+      <div class="info">
+        <label>📅 Date création</label>
+        <p>{{ etudiant.created_at | date:'medium' }}</p>
+      </div>
+
+    </div>
+
+    <!-- ACTIONS -->
+    <div class="profile-actions">
+      <button class="btn edit">✏️ Modifier</button>
+      <button class="btn password">🔒 Change Password</button>
+    </div>
+
+  </div>
+
+</div>

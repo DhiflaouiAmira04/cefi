@@ -1,0 +1,97 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+.profile-card {
+  width: 400px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+/* HEADER */
+.profile-header {
+  background: linear-gradient(135deg, #4e73df, #224abe);
+  text-align: center;
+  padding: 30px;
+  color: white;
+}
+
+.profile-img {
+  width: 80px;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 10px;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* STATUS COLORS */
+.status.actif {
+  background: #28a745;
+}
+
+.status.inactif {
+  background: red;
+}
+
+/* BODY */
+.profile-body {
+  padding: 20px;
+}
+
+.info {
+  margin-bottom: 15px;
+}
+
+.info label {
+  font-weight: bold;
+  color: #555;
+}
+
+.info p {
+  margin: 5px 0 0;
+  color: #333;
+}
+
+/* BUTTONS */
+.profile-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn.edit {
+  background: #4e73df;
+  color: white;
+}
+
+.btn.password {
+  background: #858796;
+  color: white;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,54 @@
+/* =========================
+   FORM GRID -> SINGLE COLUMN
+========================= */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 👈 مهم: عمود واحد */
+  gap: 14px;
+}
+
+/* =========================
+   INPUT GROUP FULL WIDTH STYLE
+========================= */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* inputs full width clean */
+.input-group input,
+.input-group select,
+.input-group textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f9fafb;
+  font-size: 0.9rem;
+}
+
+/* focus */
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: #3b82f6;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* =========================
+   FORM CARD FIXED ALIGN
+========================= */
+.integrated-form {
+  max-width: 650px;   /* 👈 يخلي الفورم مرتب في الوسط */
+  margin: auto;
+}
+
+/* =========================
+   HEADER CENTER OPTIONAL
+========================= */
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,107 @@
+<div class="container">
+
+  <h2 class="title">📚 Liste des Étudiants Inscrits</h2>
+
+  <table class="table">
+
+    <thead>
+      <tr>
+        <th>Matricule</th>
+        <th>CIN</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Diplôme</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let e of etudiants">
+
+        <td>{{ e.matricule }}</td>
+        <td>{{ e.cin }}</td>
+        <td>{{ e.nom_prenom }}</td>
+        <td>{{ e.email }}</td>
+
+        <!-- DIPLOME -->
+        <td>
+          <span class="badge bg-info text-dark">
+            {{ getNomDiplome(e.diplome_id) }}
+          </span>
+        </td>
+
+        <!-- ACTION -->
+        <td>
+          <button class="btn" (click)="openDetails(e)">
+            Voir plus
+          </button>
+        </td>
+
+      </tr>
+    </tbody>
+
+  </table>
+
+  <div *ngIf="!etudiants.length" class="empty">
+    Aucun étudiant trouvé.
+  </div>
+
+</div>
+
+
+<!-- MODAL -->
+<div class="modal" *ngIf="selectedEtudiant">
+
+  <div class="modal-content">
+
+    <h2>📌 Détails Étudiant</h2>
+
+    <div class="grid">
+
+      <p><b>Matricule:</b> {{ selectedEtudiant.matricule }}</p>
+      <p><b>CIN:</b> {{ selectedEtudiant.cin }}</p>
+      <p><b>Nom:</b> {{ selectedEtudiant.nom_prenom }}</p>
+      <p><b>Email:</b> {{ selectedEtudiant.email }}</p>
+      <p><b>Téléphone:</b> {{ selectedEtudiant.telephone }}</p>
+      <p><b>Nationalité:</b> {{ selectedEtudiant.nationalite }}</p>
+      <p><b>Sexe:</b> {{ selectedEtudiant.sexe }}</p>
+      <p><b>Date naissance:</b> {{ selectedEtudiant.date_naissance }}</p>
+      <p><b>Lieu naissance:</b> {{ selectedEtudiant.lieu_naissance }}</p>
+      <p><b>Adresse:</b> {{ selectedEtudiant.adresse }}</p>
+      <p><b>Niveau:</b> {{ selectedEtudiant.niveau_etude }}</p>
+
+    </div>
+
+    <!-- PHOTO -->
+    <div class="section">
+      <h3>📷 Photo</h3>
+
+      <img
+        *ngIf="selectedEtudiant.photo"
+        [src]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + selectedEtudiant.photo"
+        class="img"
+      />
+    </div>
+
+    <!-- DOCUMENT -->
+    <div class="section">
+      <h3>📄 Document justificatif</h3>
+
+      <a
+        *ngIf="selectedEtudiant.document_justificatif"
+        [href]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + selectedEtudiant.document_justificatif"
+        target="_blank"
+        class="link"
+      >
+        Ouvrir le document
+      </a>
+
+    </div>
+
+    <button class="close" (click)="closeDetails()">
+      Fermer
+    </button>
+
+  </div>
+
+</div>

@@ -1,0 +1,78 @@
+<div class="dashboard">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      🎓 Student Dashboard
+    </div>
+
+    <div class="user-info">
+      <span class="welcome">
+        Welcome, <strong>{{ etudiant?.nom_prenom }}</strong> 👋
+      </span>
+
+      <div class="dropdown">
+
+        <!-- AVATAR DYNAMIQUE -->
+        <img
+          class="avatar"
+          (click)="toggleMenu()"
+          [src]="
+            etudiant?.photo
+              ? 'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + etudiant.photo
+              : 'assets/user.png'
+          "
+        />
+
+        <div class="menu" *ngIf="menuOpen">
+          <a routerLink="/profile">👤 Profile</a>
+          <a routerLink="/emplois">EMPLOI</a>
+          
+          <a routerLink="/modifpass">🔒 Change Password</a>
+          <a href="#">⚙️ Paramètres</a>
+          <hr />
+          <a href="#" class="logout">🚪 Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h2>Bienvenue dans votre espace 🎯</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        📚 Mes Cours
+        <a routerLink="/profile">👤 Profile</a>
+        <a routerLink="/inscrit">👤 donness comp^let</a>
+        <a routerLink="/modifpass">🔒 Change Password</a>
+        <a routerLink="/emplois">EMPLOI</a>
+      </div>
+
+      <div class="card">
+        📝 Mes Notes
+        <p><b>Email:</b> {{ etudiant?.email }}</p>
+        <a class="logout" (click)="logout()">🚪 Logout</a>
+      </div>
+
+      <div class="card">
+        📅 Emploi du temps
+         <a routerLink="/getmssg">👤 messages</a>
+      </div>
+
+      <div class="card">
+        💬 Messages
+        <a
+          [href]="'http://localhost/CEFI/Dashborad/backend/etudiant/uploads/' + etudiant?.document_justificatif"
+          target="_blank"
+        >
+          📥 Document justificatif
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+</div>

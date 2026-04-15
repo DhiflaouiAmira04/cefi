@@ -1,0 +1,67 @@
+<div class="container">
+
+  <h2>📧 Send Emails to Students</h2>
+
+  <!-- SUBJECT -->
+  <input type="text"
+         [(ngModel)]="subject"
+         placeholder="Subject"
+         class="input">
+
+  <!-- MESSAGE -->
+  <textarea [(ngModel)]="message"
+            placeholder="Write your message..."
+            class="textarea"></textarea>
+
+  <!-- FILE ATTACHMENT -->
+  <input type="file"
+         (change)="onFileSelected($event)"
+         class="file-input">
+
+  <hr>
+
+  <!-- MODE SELECTION -->
+  <h3>🎯 Send To</h3>
+
+  <label>
+    <input type="radio" name="mode" value="all1"
+           [(ngModel)]="mode">
+    📘 1ère année
+  </label>
+
+  <label>
+    <input type="radio" name="mode" value="all2"
+           [(ngModel)]="mode">
+    📗 2ème année
+  </label>
+
+  <label>
+    <input type="radio" name="mode" value="single"
+           [(ngModel)]="mode">
+    👤 Étudiant spécifique
+  </label>
+
+  <hr>
+
+  <!-- STUDENT LIST (only if single) -->
+  <div *ngIf="mode === 'single'">
+
+    <h3>👥 Select Student</h3>
+
+    <select [(ngModel)]="selectedStudent">
+      <option *ngFor="let s of students"
+              [value]="s.email">
+        {{ s.nom_prenom }} - {{ s.niveau }}
+      </option>
+    </select>
+
+  </div>
+
+  <hr>
+
+  <!-- BUTTON -->
+  <button (click)="sendEmail()" class="btn">
+    📤 Envoyer
+  </button>
+
+</div>

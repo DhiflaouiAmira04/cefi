@@ -1,0 +1,152 @@
+<div class="dashboard-container">
+  <header class="dash-header">
+    <h1>Gestion des Étudiants</h1>
+    <p>Bienvenue dans votre espace d'administration des étudiants</p>
+  </header>
+
+  <div class="stats-overview no-print">
+
+    <!-- Pré-inscriptions -->
+    <div class="nav-card" routerLink="/listeEtudPreinscription">
+      <div class="card-icon blue">
+        <!-- File SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M6 2h9l5 5v15a2 2 0 0 1-2 
+          2H6a2 2 0 0 1-2-2V4a2 2 0 
+          0 1 2-2zm8 1.5V8h4.5L14 3.5z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Pré-inscriptions</h3>
+        <p>Consulter les demandes</p>
+      </div>
+    </div>
+
+    <!-- Liste étudiants -->
+    <div class="nav-card" routerLink="/listeEtudiants">
+      <div class="card-icon green">
+        <!-- Students SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 
+          3zm0 13l-8-4.36V17l8 4 8-4v-5.36L12 16z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Liste Étudiants</h3>
+        <p>Voir tous les inscrits</p>
+      </div>
+    </div>
+
+    <!-- Ajouter étudiant -->
+    <div class="nav-card" routerLink="/ajouterEtudiant">
+      <div class="card-icon orange">
+        <!-- Add user -->
+        <svg viewBox="0 0 24 24">
+          <path d="M15 12c2.21 0 4-1.79 
+          4-4s-1.79-4-4-4-4 1.79-4 
+          4 1.79 4 4 4zm-6 8v-2c0-2.67 
+          5.33-4 8-4 .7 0 1.37.06 
+          2 .17V20H9zm-3-6h2v-2h2v-2H8V8H6v2H4v2h2v2z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Ajouter</h3>
+        <p>Inscrire un étudiant</p>
+      </div>
+    </div>
+
+    <!-- Modifier -->
+    <div class="nav-card" routerLink="/modif">
+      <div class="card-icon teal">
+        <!-- Edit -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17.25V21h3.75L17.81 
+          9.94l-3.75-3.75L3 
+          17.25zM20.71 7.04a1.003 1.003 
+          0 000-1.42l-2.34-2.34a1.003 
+          1.003 0 00-1.42 0l-1.83 
+          1.83 3.75 3.75 1.84-1.82z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Modifier</h3>
+        <p>Modifier un étudiant</p>
+      </div>
+    </div>
+
+    <!-- Supprimer -->
+    <div class="nav-card" routerLink="/supprimeretud">
+      <div class="card-icon red">
+        <!-- Trash -->
+        <svg viewBox="0 0 24 24">
+          <path d="M6 7h12v14H6zM9 4h6l1 2H8l1-2z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Supprimer</h3>
+        <p>Supprimer un étudiant</p>
+      </div>
+    </div>
+
+    <!-- Comptes -->
+    <div class="nav-card" routerLink="/adminEtudiants">
+      <div class="card-icon purple">
+        <!-- Settings -->
+        <svg viewBox="0 0 24 24">
+          <path d="M19.14,12.94a7.49,7.49,0,0,0,.05-.94,
+          7.49,7.49,0,0,0-.05-.94l2.11-1.65a.5.5,0,0,0,.12-.64
+          l-2-3.46a.5.5,0,0,0-.6-.22l-2.49,1a7.28,7.28,0,0,0-1.63-.94
+          l-.38-2.65A.5.5,0,0,0,13.77,2H10.23a.5.5,0,0,0-.49.42
+          L9.36,5.07a7.28,7.28,0,0,0-1.63.94l-2.49-1a.5.5,0,0,0-.6.22
+          l-2,3.46a.5.5,0,0,0,.12.64L4.86,11.06a7.49,7.49,0,0,0-.05.94
+          7.49,7.49,0,0,0,.05.94L2.75,14.59a.5.5,0,0,0-.12.64
+          l2,3.46a.5.5,0,0,0,.6.22l2.49-1a7.28,7.28,0,0,0,1.63.94
+          l.38,2.65a.5.5,0,0,0,.49.42h3.54a.5.5,0,0,0,.49-.42
+          l.38-2.65a7.28,7.28,0,0,0,1.63-.94l2.49,1a.5.5,0,0,0,.6-.22
+          l2-3.46a.5.5,0,0,0-.12-.64ZM12,15.5A3.5,3.5,0,1,1,15.5,12,
+          3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Comptes Actifs</h3>
+        <p>Gérer les accès</p>
+      </div>
+    </div>
+
+    <!-- Fiche étudiant -->
+    <div class="nav-card" routerLink="/ficheprint">
+      <div class="card-icon dark">
+        <!-- Profile -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 12c2.7 0 5-2.3 
+          5-5s-2.3-5-5-5-5 2.3-5 
+          5 2.3 5 5 5zm0 2c-3.3 
+          0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>Fiche Étudiant</h3>
+        <p>Consulter les détails</p>
+      </div>
+    </div>
+        <!-- Modifier -->
+    <div class="nav-card" routerLink="/account">
+      <div class="card-icon teal">
+        <!-- Edit -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 17.25V21h3.75L17.81 
+          9.94l-3.75-3.75L3 
+          17.25zM20.71 7.04a1.003 1.003 
+          0 000-1.42l-2.34-2.34a1.003 
+          1.003 0 00-1.42 0l-1.83 
+          1.83 3.75 3.75 1.84-1.82z"/>
+        </svg>
+      </div>
+      <div class="card-info">
+        <h3>compte</h3>
+        <p>Modifier un étudiant</p>
+      </div>
+    </div>
+
+  </div>
+</div>
